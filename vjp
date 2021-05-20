@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<math.h>
+int Sodep(int n){
+	int k,cal=0,c=n,sum=0;
+	while(n){
+		k=n%10;
+		cal=cal*10+k;
+		sum=sum+k;
+		n=n/10;
+	}
+	if(cal==c&&sum%10==0)return 1;
+	else return 0;
+}
+int main(){
+	int a;
+	scanf("%d",&a);
+	for(int x=1;x<=a;x++){
+		int n;
+		scanf("%d",&n);
+		int k=0;
+		for(int i=pow(10,n-1);i<pow(10,n);i++){
+			if(Sodep(i)==1) k++;
+		}
+		printf("%d\n",k);
+   }
+}
